@@ -75,3 +75,14 @@ ON p.id=e.project_id
 WHERE CEILING(expense/365*project_length)>budget --4. Keep only prorates_expense > budget
 
 ````
+
+
+
+### Output:
+| title | budget | proprates_expense |
+| ----------- | ----------- | ----------- |
+| Project6 | 41,611 | 63,230 |
+| Project9 | 32,341 | 44,691 |
+| Project11 | 11,705 | 31,606 |
+| Project21 | 24,330 | 57,310 |
+| Project22 | 18,590 | 20,090 |
