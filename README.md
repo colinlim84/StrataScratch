@@ -30,3 +30,45 @@ _HINT: to make it simpler, consider that all years have 365 days. You don't need
 ***
 
 ## Question and Solution
+
+### Breakdown the task
+
+#### Request
+1. Compute cost of each employees assigned to individual project (rounded to next dollar amount)
+2. SUM cost by Project
+3. Keep only total cost > budget
+
+#### What's needed?
+1. Project Title
+2. Budget
+3. Prorates_expense
+
+````sql
+with project as (
+SELECT 
+    id, 
+    title, 
+    budget, 
+    DATEDIFF(end_date, start_date) as project_length
+FROM linkedin_projects),
+
+expense as (
+SELECT 
+    project_id, SUM(salary) as expense
+FROM linkedin_emp_projects a
+LEFT JOIN linkedin_employees b
+ON a.emp_id=b.id
+GROUP BY project_id)
+
+SELECT 
+    title, 
+    budget, 
+    CEILING(expense/365*project_length) as prorates_expense
+FROM project p
+LEFT JOIN expense e
+ON p.id=e.project_id
+WHERE CEILING(expense/365*project_length)>budget
+
+
+
+````
