@@ -34,9 +34,10 @@ _HINT: to make it simpler, consider that all years have 365 days. You don't need
 ### Breakdown the task
 
 #### Request
-1. Compute cost of each employees assigned to individual project (rounded to next dollar amount)
-2. SUM cost by Project
-3. Keep only total cost > budget
+1. Compute duration of each project
+2. SUM expense of individual project
+3. Get prorates_expense via (project_expense*project_duration)
+4. Keep only prorates_expense > budget
 
 #### What's needed?
 1. Project Title
@@ -45,6 +46,7 @@ _HINT: to make it simpler, consider that all years have 365 days. You don't need
 
 ````sql
 
+-- 1. Compute duration of each project
 with project as (
 SELECT 
     id, 
@@ -53,6 +55,7 @@ SELECT
     DATEDIFF(end_date, start_date) as project_length
 FROM linkedin_projects),
 
+--2. SUM expense of individual project
 expense as (
 SELECT 
     project_id, SUM(salary) as expense
@@ -61,6 +64,8 @@ LEFT JOIN linkedin_employees b
 ON a.emp_id=b.id
 GROUP BY project_id)
 
+--3. Get prorates_expense via (project_expense*project_duration)
+--4. Keep only prorates_expense > budget
 SELECT 
     title, 
     budget, 
