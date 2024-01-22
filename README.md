@@ -36,7 +36,7 @@ _HINT: to make it simpler, consider that all years have 365 days. You don't need
 #### Request
 1. Compute duration of each project
 2. SUM expense of individual project
-3. Get prorates_expense via (project_expense*project_duration)
+3. Get prorates_expense via (project_expense*project_duration) [rounded to next dollar amount]
 4. Keep only prorates_expense > budget
 
 #### What's needed?
@@ -64,15 +64,13 @@ LEFT JOIN linkedin_employees b
 ON a.emp_id=b.id
 GROUP BY project_id)
 
---3. Get prorates_expense via (project_expense*project_duration)
---4. Keep only prorates_expense > budget
 SELECT 
     title, 
     budget, 
-    CEILING(expense/365*project_length) as prorates_expense
+    CEILING(expense/365*project_length) as prorates_expense --3. Get prorates_expense via (project_expense*project_duration) [rounded to next dollar amount]
 FROM project p
 LEFT JOIN expense e
 ON p.id=e.project_id
-WHERE CEILING(expense/365*project_length)>budget
+WHERE CEILING(expense/365*project_length)>budget --4. Keep only prorates_expense > budget
 
 ````
