@@ -44,6 +44,7 @@ _HINT: to make it simpler, consider that all years have 365 days. You don't need
 2. Budget
 3. Prorates_expense
 
+### Solution
 ````sql
 
 -- 1. Compute duration of each project
