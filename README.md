@@ -25,8 +25,7 @@ _HINT: to make it simpler, consider that all years have 365 days. You don't need
 ***
 
 ## Entity Relationship Diagram
-<img src="https://github.com/colinlim84/StrataScratch/blob/main/ERD.pdf" alt="Image" width="500" height="520">
-
+![image](https://github.com/colinlim84/StrataScratch/blob/main/ERD.pdf)
 
 ***
 
