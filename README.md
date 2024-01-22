@@ -44,6 +44,7 @@ _HINT: to make it simpler, consider that all years have 365 days. You don't need
 3. Prorates_expense
 
 ````sql
+
 with project as (
 SELECT 
     id, 
@@ -68,7 +69,5 @@ FROM project p
 LEFT JOIN expense e
 ON p.id=e.project_id
 WHERE CEILING(expense/365*project_length)>budget
-
-
 
 ````
