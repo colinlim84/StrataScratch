@@ -44,6 +44,9 @@ _HINT: to make it simpler, consider that all years have 365 days. You don't need
 2. Budget
 3. Prorates_expense
 
+#### Any specific order?
+NA
+
 ### Solution
 ````sql
 
