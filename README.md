@@ -29,6 +29,41 @@ _HINT: to make it simpler, consider that all years have 365 days. You don't need
 
 ***
 
+## Table Preview
+
+**linkedin_projects**
+
+| id | title    | budget | start_date | end_date |
+| - | -------- | ------ | ---------- | -------- |
+| 1 | Project1 | 29498  | 31/8/18    | 13/3/19  |
+| 2 | Project2 | 32487  | 27/1/18    | 13/12/18 |
+| 3 | Project3 | 43909  | 5/11/19    | 9/12/19  |
+| 4 | Project4 | 15776  | 28/6/18    | 20/11/18 |
+| 5 | Project5 | 36268  | 13/3/19    | 2/1/20   |
+
+**linkedin_emp_projects**
+
+| emp_id | project_id |
+| ------ | ---------- |
+| 10592  | 1          |
+| 10593  | 2          |
+| 10594  | 3          |
+| 10595  | 4          |
+| 10596  | 5          |
+
+**linkedin_employees**
+
+| id    | first_name | last_name | salary |
+| ----- | ---------- | --------- | ------ |
+| 10592 | Jennifer   | Roberts   | 20204  |
+| 10593 | Haley      | Ho        | 33154  |
+| 10594 | Eric       | Mccarthy  | 32360  |
+| 10595 | Gina       | Martinez  | 46388  |
+| 10596 | Jason      | Fields    | 12348  |
+
+***
+
+
 ## Question and Solution
 
 ### Breakdown the task
